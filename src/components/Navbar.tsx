@@ -10,7 +10,9 @@ const Navbar = () => {
           className="w-full h-full outline-none py-1"
           placeholder="Search for books"
         />
-        <button className="p-1 bg-green-900 rounded-sm text-white font-light">Search</button>
+        <button className="py-1 px-2 bg-green-900 rounded-sm text-white font-light">
+          Search
+        </button>
       </div>
       <div className="flex justify-around mr-20">
         <Link to="/login" className="text-center mr-4">
