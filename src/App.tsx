@@ -5,7 +5,7 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <div className="text-3xl text-center font-light pt-4">
+      <div className="text-3xl text-center font-light pt-4 min-h-screen">
         Online Library App
       </div>
       <Footer />
