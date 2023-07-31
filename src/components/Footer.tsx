@@ -37,7 +37,7 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <div className="text-center font-light pt-8">
+      <div className="text-center font-light pt-8 pb-4">
         &copy; {curentYear} Online Library App
       </div>
     </div>
