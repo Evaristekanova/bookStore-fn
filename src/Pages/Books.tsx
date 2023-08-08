@@ -1,4 +1,4 @@
-import BookCard from "./BookCard";
+import BookCard from "../components/BookCard";
 const Books = () => {
   return (
     <>
