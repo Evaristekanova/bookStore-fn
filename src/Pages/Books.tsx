@@ -26,7 +26,7 @@ const Books = () => {
   if (error) return <p>Error :(There was an error. Please reload the page)</p>;
 
   return (
-    <div>
+    <div className="px-6">
       {books.map((book: BookProps) => (
         <BookCard
           key={book.id}
