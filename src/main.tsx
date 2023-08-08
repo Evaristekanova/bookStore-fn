@@ -1,4 +1,9 @@
-import React from "react";
+import {
+  ApolloProvider,
+  ApolloClient,
+  createHttpLink,
+  InMemoryCache,
+} from "@apollo/client";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import App from "./App.tsx";
@@ -8,8 +13,17 @@ import Books from "./Pages/Books.tsx";
 import Login from "./Pages/Login.tsx";
 import "./index.css";
 
+const httpLink = createHttpLink({
+  uri: "http://localhost:4000/graphql",
+});
+
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
+});
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
+  <ApolloProvider client={client}>
     <Router>
       <Navbar />
       <Routes>
@@ -19,5 +33,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       </Routes>
       <Footer />
     </Router>
-  </React.StrictMode>
+  </ApolloProvider>
 );
