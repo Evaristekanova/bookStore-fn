@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AppWithNavbarAndFooter from "./components/AppWithFooterAndNavbar";
 import AppWithOnlyNavbar from "./components/AppWithOnlyNavbar";
 import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 import "./index.css";
 
 const httpLink = createHttpLink({
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/" element={<AppWithNavbarAndFooter />} />
         <Route path="/books" element={<AppWithOnlyNavbar />} />
       </Routes>
