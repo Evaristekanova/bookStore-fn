@@ -21,6 +21,7 @@ const Books = () => {
       setBooks(data.books);
     }
   }, [data, loading, error]);
+  console.log(books);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(There was an error. Please reload the page)</p>;

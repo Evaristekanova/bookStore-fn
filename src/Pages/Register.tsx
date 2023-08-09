@@ -3,8 +3,8 @@ import InputField from "../components/InputField";
 import FormButton from "../components/FormButton";
 const Register = () => {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="w-[30%] border shadow-lg pb-6">
+    <div className="flex justify-center items-center h-screen bg-lightGray">
+      <div className="w-[30%] border shadow-lg pb-6 md:w-[60%] sm:w-full">
         <div className="border-b py-6">
           <h1 className=" text-center font-semibold text-xl ml-2 py-2 text-lightGreen">
             Sign up to Continue

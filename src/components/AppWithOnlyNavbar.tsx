@@ -6,7 +6,7 @@ const AppWithOnlyNavbar = () => (
   <>
     <Navbar />
     <Routes>
-      <Route path="/books" element={<Books />} />
+      <Route path="/books/*" element={<Books />} />
     </Routes>
   </>
 );
