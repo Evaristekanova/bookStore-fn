@@ -6,11 +6,9 @@ import {
 } from "@apollo/client";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import App from "./App.tsx";
-import Navbar from "./components/Navbar.tsx";
-import Footer from "./components/Footer.tsx";
-import Books from "./Pages/Books.tsx";
-import Login from "./Pages/Login.tsx";
+import AppWithNavbarAndFooter from "./components/AppWithFooterAndNavbar";
+import AppWithOnlyNavbar from "./components/AppWithOnlyNavbar";
+import Login from "./Pages/Login";
 import "./index.css";
 
 const httpLink = createHttpLink({
@@ -25,13 +23,11 @@ const client = new ApolloClient({
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <ApolloProvider client={client}>
     <Router>
-      <Navbar />
       <Routes>
-        <Route path="/" Component={App} />
-        <Route path="/books" Component={Books} />
-        <Route path="/login" Component={Login} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<AppWithNavbarAndFooter />} />
+        <Route path="/books" element={<AppWithOnlyNavbar />} />
       </Routes>
-      <Footer />
     </Router>
   </ApolloProvider>
 );

@@ -11,7 +11,7 @@ const Navbar = () => {
           className="w-full h-full outline-none py-1"
           placeholder="Search for books"
         />
-        <button className="py-1 px-2 bg-green-900 rounded-sm text-white font-light">
+        <button className="py-1 px-2 bg-green-700 hover:bg-green-500 rounded-sm text-white font-light">
           Search
         </button>
       </div>
