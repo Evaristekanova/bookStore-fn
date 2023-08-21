@@ -6,6 +6,8 @@ import {
 } from "@apollo/client";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import {store} from "./redux/store";
 import AppWithNavbarAndFooter from "./components/AppWithFooterAndNavbar";
 // import AppWithOnlyNavbar from "./components/AppWithOnlyNavbar";
 import Login from "./Pages/Login";
@@ -17,20 +19,22 @@ const httpLink = createHttpLink({
   uri: "http://localhost:4000/graphql",
 });
 
-const client = new ApolloClient({
+export const client = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache(),
 });
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <ApolloProvider client={client}>
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/" element={<AppWithNavbarAndFooter />} />
-        <Route path="/books/*" element={<Books />} />
-      </Routes>
-    </Router>
-  </ApolloProvider>
+  <Provider store={store}>
+    <ApolloProvider client={client}>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<AppWithNavbarAndFooter />} />
+          <Route path="/books" element={<Books />} />
+        </Routes>
+      </Router>
+    </ApolloProvider>
+  </Provider>
 );

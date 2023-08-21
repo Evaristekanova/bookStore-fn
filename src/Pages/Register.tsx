@@ -25,7 +25,6 @@ const Register = () => {
     },
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {

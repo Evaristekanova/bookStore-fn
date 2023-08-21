@@ -16,7 +16,6 @@ const Login = () => {
     },
 
     onCompleted: (data) => {
-      console.log(data);
       localStorage.setItem("token", data.login.token);
     },
 
@@ -58,7 +57,7 @@ const Login = () => {
             id="email"
             onChange={handleEmailChange}
             value={email}
-            className="sm:py-3 md:py-3 w-full px-4 py-2 border border-lightGreen rounded-md focus:outline-none focus:border-gray-300 focus:border-transparent my-2"
+            className="sm:py-3 md:py-3 w-full px-4 py-2 border border-lightGreen rounded-md focus:outline-none focus:border-gray-300 focus:border-transparent my-2 sm:my-3 md:my-3 lg:my-4"
           />
           <InputField
             placeholder="Password"

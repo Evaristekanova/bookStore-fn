@@ -1,34 +1,34 @@
-import { useEffect, useState } from "react";
-import { useQuery } from "@apollo/client";
+import { useEffect } from "react";
 import BookCard from "../components/BookCard";
-import { BOOKS_QUERY } from "../graphql/BOOKS_QUERY";
-
-interface BookProps {
-  id: number;
-  author: string;
-  categoryId: string;
-  cloudinaryId: string;
-  image: string;
-  title: string;
-}
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import {
+  Book,
+  fetchBooks,
+  selectBooks,
+  selectLoading,
+  selectError
+} from "../redux/books/bookSlice";
 
 const Books = () => {
-  const { loading, error, data } = useQuery(BOOKS_QUERY);
-  const [books, setBooks] = useState<BookProps[]>([]);
+  const dispatch = useAppDispatch();
+  const loading = useAppSelector(selectLoading);
+  const selectedBooks = useAppSelector(selectBooks);
+  const error = useAppSelector(selectError);
 
   useEffect(() => {
-    if (!loading && !error && data) {
-      setBooks(data.books);
-    }
-  }, [data, loading, error]);
-  console.log(books);
+    dispatch(fetchBooks());
+  }, [dispatch]);
+  console.log(selectedBooks);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(There was an error. Please reload the page)</p>;
-
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (error) {
+    return <div>{"error: Reload the page please"}</div>;
+  }
   return (
     <div className="px-6">
-      {books.map((book: BookProps) => (
+      {selectedBooks.map((book: Book) => (
         <BookCard
           key={book.id}
           title={book.title}

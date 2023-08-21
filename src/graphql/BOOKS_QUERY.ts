@@ -8,6 +8,7 @@ export const BOOKS_QUERY = gql`
       author
       image
       categoryId
+      cloudinaryId
     }
   }
 `;
