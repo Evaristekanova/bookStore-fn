@@ -52,7 +52,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-lightGray">
+    <div className="flex justify-center items-center h-[88vh] bg-lightGray">
       <div className="sm:w-[75%] sm:mx-4 md:w-[60%] lg:w-[45%] xl:w-[40%] border shadow-lg pb-6 w-[95%]">
         <div className="border-b py-6">
           <h1 className=" text-center font-semibold text-sm ml-2 py-2 text-lightGreen sm:text-lg md:text-xl lg:text-xl">

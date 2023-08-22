@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import BookCard from "../components/BookCard";
+import Loading from "./Loading";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import {
   Book,
@@ -21,7 +22,7 @@ const Books = () => {
   console.log(selectedBooks);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
   if (error) {
     return <div>{"error: Reload the page please"}</div>;

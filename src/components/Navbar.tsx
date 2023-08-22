@@ -13,7 +13,12 @@ const Navbar = () => {
   ];
   return (
     <div className="flex items-center h-20 border shadow-md justify-between sticky top-0 z-20 bg-white">
-      <div className="mx-16">Logo</div>
+      <div className="mx-16">
+        <Link to='/'>
+          <span className="font-semibold text-xl text-lightGreen">Lo</span>
+          <span className="font-semibold text-xl ">go</span>
+        </Link>
+      </div>
       <Link to="/books">Books</Link>
       <div className="md:flex md:ml-[7rem] md:w-[28%] md:border md:py-1 md:px-2 md:rounded-md lg:flex lg:ml-[18rem] lg:w-[28%] lg:border lg:py-1 lg:px-2 lg:rounded-md sm:hidden hidden">
         <input
