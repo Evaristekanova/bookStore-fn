@@ -1,7 +1,16 @@
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { FaSearch, FaBars } from "react-icons/fa";
+import InputField from "./InputField";
 
 const Navbar = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
   const links = [
+    {
+      name: "Books",
+      path: "/books",
+    },
     {
       name: "Login",
       path: "/login",
@@ -11,33 +20,126 @@ const Navbar = () => {
       path: "/register",
     },
   ];
+
+  useEffect(() => {
+    let timeoutId: number | null = null;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !(dropdownRef.current as HTMLDivElement).contains(event.target as Node)
+      ) {
+        timeoutId = window.setTimeout(() => {
+          setIsDropdownOpen(false);
+        }, 100);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      if (timeoutId !== null) {
+        window.clearTimeout(timeoutId);
+      }
+    };
+  }, []);
+
   return (
-    <div className="flex items-center h-20 border shadow-md justify-between sticky top-0 z-20 bg-white">
-      <div className="mx-16">
-        <Link to='/'>
-          <span className="font-semibold text-xl text-lightGreen">Lo</span>
-          <span className="font-semibold text-xl ">go</span>
-        </Link>
-      </div>
-      <Link to="/books">Books</Link>
-      <div className="md:flex md:ml-[7rem] md:w-[28%] md:border md:py-1 md:px-2 md:rounded-md lg:flex lg:ml-[18rem] lg:w-[28%] lg:border lg:py-1 lg:px-2 lg:rounded-md sm:hidden hidden">
-        <input
-          type="text"
-          className="w-full h-full outline-none py-1"
-          placeholder="Search for books"
-        />
-        <button className="py-1 px-2 bg-lightGreen rounded-sm text-white font-light">
-          Search
-        </button>
-      </div>
-      <div className="flex justify-around mr-20">
-        {links.map((link) => (
-          <Link to={link.path} key={link.name} className="text-center ml-6">
-            {link.name}
+    <nav className="bg-white border-gray-200">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
+        <div className="mx-16">
+          <Link to="/">
+            <span className="font-semibold text-xl text-lightGreen">Lo</span>
+            <span className="font-semibold text-xl">go</span>
           </Link>
-        ))}
+        </div>
+        <div className="flex md:order-2 outline-none">
+          <button
+            type="button"
+            data-collapse-toggle="navbar-search"
+            aria-controls="navbar-search"
+            aria-expanded="false"
+            className="md:hidden text-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg text-sm p-2.5 mr-1"
+          >
+            <FaSearch className="w-5 h-5 text-lightGreen" />
+            <span className="sr-only">Search</span>
+          </button>
+          <div className="relative hidden md:block">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <FaSearch className="w-4 h-4 text-lightGreen" />
+              <span className="sr-only">Search icon</span>
+            </div>
+            <InputField
+              type="text"
+              id="search-navbar"
+              className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 outline-none"
+              placeholder="Search..."
+              value=""
+            />
+          </div>
+          <button
+            data-collapse-toggle="navbar-search"
+            type="button"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            aria-controls="navbar-search"
+            aria-expanded="false"
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <FaBars className="w-5 h-5 text-lightGreen" />
+          </button>
+          {isDropdownOpen && (
+            <div
+              ref={dropdownRef}
+              className="absolute right-0 top-full w-[15rem] mt-2 bg-white border border-gray-100 rounded-lg shadow-lg"
+            >
+              <ul className="py-2">
+                {links.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      to={link.path}
+                      className="block px-4 py-2 text-gray-900 hover:bg-gray-100 text-center"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+        <div
+          className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+          id="navbar-search"
+        >
+          <div className="relative mt-3 md:hidden">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <FaSearch className="w-4 h-4 text-lightGreen dark:text-gray-400" />
+            </div>
+            <InputField
+              type="text"
+              id="search-navbar"
+              className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700"
+              placeholder="Search..."
+              value=""
+            />
+          </div>
+          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+            {links.map((link) => (
+              <li key={link.name}>
+                <Link
+                  to={link.path}
+                  className="block px-4 py-2 text-gray-900 rounded-lg hover:bg-gray-100 md:hover:bg-transparent"
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
