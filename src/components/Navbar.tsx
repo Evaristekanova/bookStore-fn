@@ -5,7 +5,9 @@ import InputField from "./InputField";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const searchInputRef = useRef<HTMLInputElement | null>(null);
   const links = [
     {
       name: "Books",
@@ -45,6 +47,13 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleSearchButtonClick = () => {
+    setIsSearchVisible(!isSearchVisible);
+    if (!isSearchVisible && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  };
+
   return (
     <nav className="bg-white border-gray-200">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
@@ -60,11 +69,22 @@ const Navbar = () => {
             data-collapse-toggle="navbar-search"
             aria-controls="navbar-search"
             aria-expanded="false"
+            onClick={handleSearchButtonClick}
             className="md:hidden text-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg text-sm p-2.5 mr-1"
           >
             <FaSearch className="w-5 h-5 text-lightGreen" />
             <span className="sr-only">Search</span>
           </button>
+          {isSearchVisible && (
+            <input
+              ref={searchInputRef}
+              type="text"
+              id="search-navbar"
+              className="absolute right-[2rem] top-full md:hidden block w-[15rem] p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 outline-none"
+              placeholder="Search..."
+              value=""
+            />
+          )}
           <div className="relative hidden md:block">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <FaSearch className="w-4 h-4 text-lightGreen" />
