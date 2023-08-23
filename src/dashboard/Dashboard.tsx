@@ -1,10 +1,8 @@
-import SideBar from "./Sidebar";
-
 const Dashboard = () => {
   return (
-    <>
-      <SideBar />
-    </>
+    <div className="flex flex-col w-full h-screen px-4 py-8 ">
+      Dashbord
+    </div>
   );
 };
 

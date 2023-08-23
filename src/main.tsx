@@ -10,7 +10,7 @@ import { Provider } from "react-redux";
 import {store} from "./redux/store";
 import AppWithNavbarAndFooter from "./components/AppWithFooterAndNavbar";
 import AppWithNabar from "./components/AppWithNabar";
-import Dashboard from "./dashboard/Dashboard";
+import DashboardIndex from "./dashboard/DashBoardIndex";
 import "./index.css";
 
 const httpLink = createHttpLink({
@@ -29,7 +29,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Routes>
           <Route path="/*" element={<AppWithNabar />} />
           <Route path="/" element={<AppWithNavbarAndFooter />} />
-          <Route path="/dashboard/*" element={<Dashboard />} />
+          <Route path="/dashboard/*" element={<DashboardIndex />} />
         </Routes>
       </Router>
     </ApolloProvider>

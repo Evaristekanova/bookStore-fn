@@ -4,7 +4,7 @@ import { HiUsers, HiUser } from "react-icons/hi";
 
 const Sidebar = () => {
   return (
-    <div className="flex flex-col w-64 h-screen px-4 py-8 bg-lightGreen border-r ">
+    <div className="md:flex flex-col w-64 h-screen px-4 py-8 bg-lightGreen border-r ">
       <div className="flex flex-col items-center mt-6 -mx-2">
         <HiUser className="w-24 h-24 mx-2 rounded-full" />
         <h4 className="mx-2 mt-2 font-medium text-xl text-white">

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaSearch, FaBars } from "react-icons/fa";
+import { AiFillCloseCircle } from "react-icons/ai";
 import InputField from "./InputField";
 
 const Navbar = () => {
@@ -77,7 +78,7 @@ const Navbar = () => {
               ref={searchInputRef}
               type="text"
               id="search-navbar"
-              className="absolute right-[2rem] top-full md:hidden block w-[15rem] p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 outline-none"
+              className="absolute right-[2rem] top-full md:hidden block w-[15rem] p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 outline-none z-10"
               placeholder="Search..."
               value=""
             />
@@ -95,18 +96,29 @@ const Navbar = () => {
               value=""
             />
           </div>
-          <button
-            type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <FaBars className="w-5 h-5 text-lightGreen" />
-          </button>
+          {isDropdownOpen ? (
+            <button
+              type="button"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+              <span className="sr-only">Open main menu</span>
+              <AiFillCloseCircle className="w-7 h-7 text-lightGreen" />
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+              <span className="sr-only">Open main menu</span>
+              <FaBars className="w-7 h-7 text-lightGreen" />
+            </button>
+          )}
           {isDropdownOpen && (
             <div
               ref={dropdownRef}
-              className="absolute right-0 top-full w-[15rem] mt-2 bg-white border border-gray-100 rounded-lg shadow-lg"
+              className="absolute right-0 top-full w-[15rem] mt-2 bg-white border border-gray-100 rounded-lg shadow-lg z-10"
             >
               <ul className="py-2">
                 {links.map((link) => (
