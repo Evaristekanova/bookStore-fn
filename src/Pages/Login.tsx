@@ -40,7 +40,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-[88vh]">
+    <div className="flex justify-center items-center h-[88vh] bg-lightGray">
       <div className="sm:w-[75%] sm:px-3 md:px-4 lg:px-4 md:w-[60%] lg:w-[45%] xl:w-[40%] border shadow-lg pb-6 w-[95%]">
         <div className="border-b py-6">
           <h1 className=" text-center font-semibold sm:text-xl md:text-xl lg:text-2xl text-sm ml-2 py-2 text-lightGreen">

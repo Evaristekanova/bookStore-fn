@@ -66,9 +66,6 @@ const Navbar = () => {
         <div className="flex md:order-2 outline-none">
           <button
             type="button"
-            data-collapse-toggle="navbar-search"
-            aria-controls="navbar-search"
-            aria-expanded="false"
             onClick={handleSearchButtonClick}
             className="md:hidden text-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg text-sm p-2.5 mr-1"
           >
@@ -99,11 +96,8 @@ const Navbar = () => {
             />
           </div>
           <button
-            data-collapse-toggle="navbar-search"
             type="button"
             className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-            aria-controls="navbar-search"
-            aria-expanded="false"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
             <span className="sr-only">Open main menu</span>
@@ -140,7 +134,7 @@ const Navbar = () => {
             <InputField
               type="text"
               id="search-navbar"
-              className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700"
+              className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
               placeholder="Search..."
               value=""
             />
@@ -150,7 +144,7 @@ const Navbar = () => {
               <li key={link.name}>
                 <Link
                   to={link.path}
-                  className="block px-4 py-2 text-gray-900 rounded-lg hover:bg-gray-100 md:hover:bg-transparent"
+                  className="block px-4 py-2 text-gray-900 rounded-lg hover:bg-gray-100 md:hover:text-lightGreen"
                 >
                   {link.name}
                 </Link>
