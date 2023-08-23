@@ -113,7 +113,7 @@ const Navbar = () => {
                   <li key={link.name}>
                     <Link
                       to={link.path}
-                      className="block px-4 py-2 text-gray-900 hover:bg-gray-100 text-center"
+                      className="block px-4 py-2 text-gray-900 hover:bg-gray-100 text-center hover:text-lightGreen"
                     >
                       {link.name}
                     </Link>
@@ -144,7 +144,7 @@ const Navbar = () => {
               <li key={link.name}>
                 <Link
                   to={link.path}
-                  className="block px-4 py-2 text-gray-900 rounded-lg hover:bg-gray-100 md:hover:text-lightGreen"
+                  className="block px-4 py-2 text-gray-900 rounded-lg hover:bg-gray-100 hover:text-lightGreen"
                 >
                   {link.name}
                 </Link>
