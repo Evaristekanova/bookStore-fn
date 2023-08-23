@@ -97,23 +97,15 @@ const Navbar = () => {
             />
           </div>
           {isDropdownOpen ? (
-            <button
-              type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            <AiFillCloseCircle
+              className="block md:hidden w-7 h-7 text-lightGreen"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            >
-              <span className="sr-only">Open main menu</span>
-              <AiFillCloseCircle className="w-7 h-7 text-lightGreen" />
-            </button>
+            />
           ) : (
-            <button
-              type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            <FaBars
+              className="block md:hidden w-7 h-7 text-lightGreen"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            >
-              <span className="sr-only">Open main menu</span>
-              <FaBars className="w-7 h-7 text-lightGreen" />
-            </button>
+            />
           )}
           {isDropdownOpen && (
             <div

@@ -10,7 +10,7 @@ import { Provider } from "react-redux";
 import {store} from "./redux/store";
 import AppWithNavbarAndFooter from "./components/AppWithFooterAndNavbar";
 import AppWithNabar from "./components/AppWithNabar";
-import DashboardIndex from "./dashboard/DashBoardIndex";
+import DashboardIndex from "./dashboard/DashboardIndex"
 import "./index.css";
 
 const httpLink = createHttpLink({
