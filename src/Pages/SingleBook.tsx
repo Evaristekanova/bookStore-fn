@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { saveAs } from "file-saver";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { selectBookById, fetchBooks } from "../redux/books/bookSlice";
 import Loading from "./Loading";
@@ -18,9 +19,9 @@ const SingleBook = () => {
     return <Loading />;
   }
   console.log(book);
-  const handleDownload = () => {
-    const fileUrl = "https://example.com/path/to/your/file.pdf";
-    const fileName = "my-book.pdf";
+  const handleOpen = () => {
+    const fileUrl = book.image;
+    const fileName = "my-book.jpg";
 
     const link = document.createElement("a");
     link.href = fileUrl;
@@ -30,6 +31,12 @@ const SingleBook = () => {
     document.body.removeChild(link);
   };
 
+  const handleDownload = () => {
+    const fileUrl = book.image;
+    const fileName = "my-book.jpg";
+    saveAs(fileUrl, fileName);
+  };
+
   return (
     <div className="px-6 pt-8">
       <div className="flex flex-row">
@@ -37,12 +44,20 @@ const SingleBook = () => {
         <div className="flex flex-col justify-center ml-14 ">
           <h1 className="text-3xl font-light">Title: {book.title}</h1>
           <h2 className="text-3xl font-light mt-3">Author: {book.author}</h2>
-          <button
-            onClick={handleDownload}
-            className="mt-4 py-2 px-4 bg-lightGreen border border-white hover:bg-white hover:border hover:border-lightGreen hover:text-lightGreen rounded-sm text-white font-light text-xl"
-          >
-            Download a book
-          </button>
+          <div className="flex flex-row mt-4">
+            <button
+              className="bg-lightGreen text-white px-4 py-2 rounded-md mr-4"
+              onClick={handleOpen}
+            >
+              Open a Book
+            </button>
+            <button
+              className="bg-lightGreen text-white px-4 py-2 rounded-md"
+              onClick={handleDownload}
+            >
+              Download a Book
+            </button>
+          </div>
         </div>
       </div>
     </div>
