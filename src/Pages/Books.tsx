@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import BookCard from "../components/BookCard";
 import Loading from "./Loading";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
@@ -7,7 +8,7 @@ import {
   fetchBooks,
   selectBooks,
   selectLoading,
-  selectError
+  selectError,
 } from "../redux/books/bookSlice";
 
 const Books = () => {
@@ -19,7 +20,6 @@ const Books = () => {
   useEffect(() => {
     dispatch(fetchBooks());
   }, [dispatch]);
-  console.log(selectedBooks);
 
   if (loading) {
     return <Loading />;
@@ -30,12 +30,14 @@ const Books = () => {
   return (
     <div className="px-6">
       {selectedBooks.map((book: Book) => (
-        <BookCard
-          key={book.id}
-          title={book.title}
-          author={book.author}
-          image={book.image}
-        />
+        <Link to={`/books/${book.id}`} key={book.id}>
+          <BookCard
+            key={book.id}
+            title={book.title}
+            author={book.author}
+            image={book.image}
+          />
+        </Link>
       ))}
     </div>
   );

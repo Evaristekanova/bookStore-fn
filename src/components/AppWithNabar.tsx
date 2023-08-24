@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Books from "../Pages/Books";
+import SingleBook from "../Pages/SingleBook";
 
 const AppWithNabar = () => {
   return (
@@ -12,6 +13,7 @@ const AppWithNabar = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/books" element={<Books />} />
+        <Route path="/books/:id" element={<SingleBook />} />
       </Routes>
     </>
   );

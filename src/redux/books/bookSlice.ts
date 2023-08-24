@@ -68,7 +68,6 @@ export const fetchBooks = () => async (dispatch: any) => {
     const { data } = await client.query({
       query: BOOKS_QUERY,
     });
-      console.log(data);
     dispatch(fetchBooksSuccess(data.books));
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
