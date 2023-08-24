@@ -5,6 +5,7 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard";
 import Users from "./Users";
+import BooksDash from "./BooksDash";
 
 const DashboardIndex = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -22,7 +23,7 @@ const DashboardIndex = () => {
         ) : (
           <FaBars
             onClick={handleSidebarOpen}
-            className="absolute right-0 top-0 m-4 text-2xl text-lightGreen cursor-pointer w-7 h-7"
+            className="block md:hidden absolute right-0 top-0 m-4 text-2xl text-lightGreen cursor-pointer w-7 h-7"
           />
         )}
         {isSidebarOpen ? (
@@ -37,6 +38,7 @@ const DashboardIndex = () => {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/books" element={<BooksDash />} />
         </Routes>
       </div>
     </>
