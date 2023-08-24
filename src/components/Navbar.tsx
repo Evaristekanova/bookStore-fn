@@ -59,7 +59,7 @@ const Navbar = () => {
     <nav className="bg-white border-gray-200">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
         <div className="mx-16">
-          <Link to="/">
+          <Link to="/dashboard">
             <span className="font-semibold text-xl text-lightGreen">Lo</span>
             <span className="font-semibold text-xl">go</span>
           </Link>
