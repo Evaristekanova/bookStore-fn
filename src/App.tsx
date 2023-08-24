@@ -1,5 +1,5 @@
 import ExploreBooks from "./components/ExploreBooks";
-import LANDING from "./assets/LANDING.jpg";
+import LANDING from './assets/LANDING.jpg'
 const App = () => {
   return (
     <>
