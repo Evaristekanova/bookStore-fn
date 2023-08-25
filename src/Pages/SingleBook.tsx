@@ -38,10 +38,10 @@ const SingleBook = () => {
   };
 
   return (
-    <div className="px-6 pt-8">
-      <div className="flex flex-row">
+    <div className="px-12 pt-[5rem]">
+      <div className="flex flex-row h-full items-center">
         <img src={book.image} alt={book.title} className="w-[40%]" />
-        <div className="flex flex-col justify-center ml-14 ">
+        <div className="flex flex-col justify-center ml-[5rem] ">
           <h1 className="text-3xl font-light">Title: {book.title}</h1>
           <h2 className="text-3xl font-light mt-3">Author: {book.author}</h2>
           <div className="flex flex-row mt-4">
