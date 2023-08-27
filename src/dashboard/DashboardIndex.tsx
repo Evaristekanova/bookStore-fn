@@ -26,15 +26,23 @@ const DashboardIndex = () => {
             className="block md:hidden absolute right-0 top-0 m-4 text-2xl text-lightGreen cursor-pointer w-7 h-7"
           />
         )}
-        {isSidebarOpen ? (
-          <div className="block md:hidden left-0 top-0 absolute z-10">
+        <div
+          className={`block md:block left-0 top-0 absolute z-10 duration-500 transition-all ${
+            isSidebarOpen ? "left-0" : "-left-full md:left-0"
+          }
+        }`}
+        >
+          <Sidebar />
+        </div>
+        {/* {isSidebarOpen ? (
+          <div className="">
             <Sidebar />
           </div>
         ) : (
           <div className="hidden md:block">
             <Sidebar />
           </div>
-        )}
+        )} */}
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/users" element={<Users />} />
