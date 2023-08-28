@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { AiFillDashboard, AiFillBook } from "react-icons/ai";
-import { HiUsers, HiUser } from "react-icons/hi";
+import { AiFillDashboard, AiFillBook,AiOutlineLogout } from "react-icons/ai";
+import { HiUsers, HiUser, HiHome } from "react-icons/hi";
 
 const Sidebar = () => {
   return (
@@ -33,6 +33,20 @@ const Sidebar = () => {
           >
             <HiUsers className="w-5 h-5 mr-2 mt-1" />
             <span>Users</span>
+          </Link>
+          <Link
+            to="/"
+            className="mt-2 flex px-4 py-2 text-gray-900 font-semibold rounded-lg hover:bg-gray-100 hover:text-lightGreen"
+          >
+            <HiHome className="w-5 h-5 mr-2 mt-1" />
+            <span>Home</span>
+          </Link>
+          <Link
+            to="/"
+            className="mt-2 flex px-4 py-2 text-gray-900 font-semibold rounded-lg hover:bg-gray-100 hover:text-lightGreen"
+          >
+            <AiOutlineLogout className="w-5 h-5 mr-2 mt-1" />
+            <span>Logout</span>
           </Link>
         </nav>
       </div>
