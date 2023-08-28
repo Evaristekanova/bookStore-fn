@@ -39,9 +39,9 @@ const SingleBook = () => {
       <div className="flex flex-row h-full items-center">
         <img src={book.image} alt={book.title} className="w-[40%]" />
         <div className="flex flex-col justify-center ml-[5rem] ">
-          <p className="text-xl font-light">Description:{book.description}</p>
-          <h1 className="text-3xl font-light">Title: {book.title}</h1>
-          <h2 className="text-3xl font-light mt-3">Author: {book.author}</h2>
+          <p className="text-2xl font-light">Description:{book.description}</p>
+          <h1 className="text-2xl font-light mt-2">Title: {book.title}</h1>
+          <h2 className="text-2xl font-light mt-2">Author: {book.author}</h2>
           <div className="flex flex-row mt-4">
             <button
               className="bg-lightGreen text-white px-4 py-2 rounded-md mr-4"

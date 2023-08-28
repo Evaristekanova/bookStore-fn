@@ -27,8 +27,8 @@ const DashboardIndex = () => {
           />
         )}
         <div
-          className={`block md:block left-0 top-0 absolute z-10 duration-500 transition-all ${
-            isSidebarOpen ? "left-0" : "-left-full md:left-0"
+          className={` md:block md:left-0 top-0 absolute z-10 duration-500 transition-all ${
+            isSidebarOpen ? "left-0 block" : "-left-full md:block"
           }
         }`}
         >
