@@ -4,6 +4,7 @@ interface BookCardProps {
   title: string;
   author: string;
   image: string;
+  bookFile?: string;
 }
 
 const BookCard: React.FC<BookCardProps> = ({ title, author, image }) => {

@@ -18,22 +18,19 @@ const SingleBook = () => {
   if (!book) {
     return <Loading />;
   }
-  console.log(book);
   const handleOpen = () => {
-    const fileUrl = book.image;
-    const fileName = "my-book.jpg";
+    const fileUrl = book.bookFile;
 
     const link = document.createElement("a");
     link.href = fileUrl;
-    link.download = fileName;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   const handleDownload = () => {
-    const fileUrl = book.image;
-    const fileName = "my-book.jpg";
+    const fileUrl = book.bookFile;
+    const fileName = `${book?.title.toLowerCase().split(" ").join("-")}.pdf`;
     saveAs(fileUrl, fileName);
   };
 
@@ -42,6 +39,7 @@ const SingleBook = () => {
       <div className="flex flex-row h-full items-center">
         <img src={book.image} alt={book.title} className="w-[40%]" />
         <div className="flex flex-col justify-center ml-[5rem] ">
+          <p className="text-xl font-light">Description:{book.description}</p>
           <h1 className="text-3xl font-light">Title: {book.title}</h1>
           <h2 className="text-3xl font-light mt-3">Author: {book.author}</h2>
           <div className="flex flex-row mt-4">

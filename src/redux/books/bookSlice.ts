@@ -7,9 +7,12 @@ export interface Book {
   id: number;
   title: string;
   author: string;
+  description: string;
   image: string;
+  bookFile: string;
   categoryId: number;
   cloudinaryId: string;
+  bookCloudinaryId: string;
 }
 
 export interface BookState {
@@ -40,7 +43,7 @@ const bookSlice = createSlice({
     fetchBooksFailure(state, action: PayloadAction<string>) {
       state.loading = false;
       state.error = action.payload;
-      },
+    },
   },
 });
 
@@ -52,12 +55,15 @@ export const selectError = (state: RootState) => state.bookReducer.error;
 
 // return a book by id
 export const selectBookById = (state: RootState, bookId: number) => {
-    return state.bookReducer.books.find((book) => book.id === bookId);
-}
+  return state.bookReducer.books.find((book) => book.id === bookId);
+};
 
-export const selectBooksByCategoryId = (state: RootState, categoryId: number) => { 
-    return state.bookReducer.books.filter((book) => book.id === categoryId);
-}
+export const selectBooksByCategoryId = (
+  state: RootState,
+  categoryId: number
+) => {
+  return state.bookReducer.books.filter((book) => book.id === categoryId);
+};
 export default bookSlice.reducer;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -69,7 +75,7 @@ export const fetchBooks = () => async (dispatch: any) => {
       query: BOOKS_QUERY,
     });
     dispatch(fetchBooksSuccess(data.books));
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     dispatch(fetchBooksFailure(error.message));
   }

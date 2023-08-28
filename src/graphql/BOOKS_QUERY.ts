@@ -6,9 +6,12 @@ export const BOOKS_QUERY = gql`
       id
       title
       author
+      description
       image
+      bookFile
       categoryId
       cloudinaryId
+      bookCloudinaryId
     }
   }
 `;
