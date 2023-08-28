@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { AiFillDashboard, AiFillBook,AiOutlineLogout } from "react-icons/ai";
+import { AiFillDashboard, AiFillBook, AiOutlineLogout } from "react-icons/ai";
 import { HiUsers, HiUser, HiHome } from "react-icons/hi";
 
 const Sidebar = () => {
