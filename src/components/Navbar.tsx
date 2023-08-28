@@ -80,7 +80,7 @@ const Navbar = () => {
                   <li key={link.name}>
                     <Link
                       to={link.path}
-                      className=" mx-2 block px-4 py-2 text-gray-900 hover:bg-gray-100 text-center hover:text-lightGreen"
+                      className=" mx-2 block px-4 rounded-lg py-2 text-gray-900 hover:bg-gray-100 text-center hover:text-lightGreen"
                     >
                       {link.name}
                     </Link>
