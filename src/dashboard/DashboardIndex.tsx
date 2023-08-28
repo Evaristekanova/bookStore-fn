@@ -27,7 +27,7 @@ const DashboardIndex = () => {
           />
         )}
         <div
-          className={` md:block md:left-0 top-0 absolute z-10 duration-500 transition-all ${
+          className={`md:block md:left-0 top-0 absolute z-10 duration-500 transition-all ${
             isSidebarOpen ? "left-0 block" : "-left-full md:block"
           }
         }`}
@@ -43,11 +43,13 @@ const DashboardIndex = () => {
             <Sidebar />
           </div>
         )} */}
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/books" element={<BooksDash />} />
-        </Routes>
+        <div className="md:ml-[16rem]">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/books" element={<BooksDash />} />
+          </Routes>
+        </div>
       </div>
     </>
   );
