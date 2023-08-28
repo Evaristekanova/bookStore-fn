@@ -73,14 +73,14 @@ const Navbar = () => {
           {isDropdownOpen && (
             <div
               ref={dropdownRef}
-              className="md:hidden absolute right-0 top-full w-[15rem] mt-2 bg-white border border-gray-100 rounded-lg shadow-lg z-10"
+              className="md:hidden absolute right-0 top-full h-[90vh] w-[15rem] mt-2 mx-1 bg-lightGreen border border-gray-100 rounded-lg shadow-lg z-10"
             >
               <ul className="py-2">
                 {links.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.path}
-                      className="block px-4 py-2 text-gray-900 hover:bg-gray-100 text-center hover:text-lightGreen"
+                      className=" mx-2 block px-4 py-2 text-gray-900 hover:bg-gray-100 text-center hover:text-lightGreen"
                     >
                       {link.name}
                     </Link>

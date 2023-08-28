@@ -20,13 +20,13 @@ const App = () => {
             </button>
           </div>
         </div>
-        <div className="sm:w-full md:w-1/2 lg:w-1/2 lg:h-full lg:flex lg:items-center lg:flex-grow  md:h-[90%] w-full">
+        {/* <div className="sm:w-full md:w-1/2 lg:w-1/2 lg:h-full lg:flex lg:items-center lg:flex-grow  md:h-[90%] w-full">
           <img
             src={LANDING}
             alt=""
             className="sm:w-full md:w-full lg:w-full h-full w-full"
           />
-        </div>
+        </div> */}
       </div>
       <ExploreBooks />
     </>
