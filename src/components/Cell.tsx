@@ -17,4 +17,5 @@ const Cell = (cellData: CellProps) => {
     </>
   );
 };
+
 export default Cell;

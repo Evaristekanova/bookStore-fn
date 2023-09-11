@@ -6,6 +6,7 @@ import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard";
 import Users from "./Users";
 import BooksDash from "./BooksDash";
+import SingleUser from "./SingleUser";
 
 const DashboardIndex = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -34,20 +35,12 @@ const DashboardIndex = () => {
         >
           <Sidebar />
         </div>
-        {/* {isSidebarOpen ? (
-          <div className="">
-            <Sidebar />
-          </div>
-        ) : (
-          <div className="hidden md:block">
-            <Sidebar />
-          </div>
-        )} */}
         <div className="md:ml-[16rem]">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/users" element={<Users />} />
             <Route path="/books" element={<BooksDash />} />
+            <Route path="/users/:id" element={<SingleUser />} />
           </Routes>
         </div>
       </div>

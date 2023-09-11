@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+// import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import Loading from "../Pages/Loading";
 import {
@@ -29,13 +30,13 @@ const Table = () => {
     <table className="w-full border-collapse">
       <tbody className="w-screen border">
         <thead className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal w-full">
-          <tr className="border-b border-gray-300">
-            <th className="py-3 px-4 font-semibold text-left">ID</th>
-            <th className="py-3 px-4 font-semibold text-left">First Name</th>
-            <th className="py-3 px-4 font-semibold text-left">Last Name</th>
-            <th className="py-3 px-4 font-semibold text-left">Email</th>
-            <th className="py-3 px-4 font-semibold text-left">Role</th>
-          </tr>
+          {/* <tr>
+            <th className="py-3 px-6 text-left">No</th>
+            <th className="py-3 px-6 text-left">First Name</th>
+            <th className="py-3 px-6 text-left">Last Name</th>
+            <th className="py-3 px-6 text-left">Email</th>
+            <th className="py-3 px-6 text-left">Role</th>
+          </tr> */}
         </thead>
         <Row users={users} />
       </tbody>
