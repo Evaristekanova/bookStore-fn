@@ -2,21 +2,19 @@ interface CellProps {
   email: string;
   firstName: string;
   lastName: string;
-  id: number;
+  id: number | string;
   role: string;
+  className?: string;
 }
-const Cell = ({ email, firstName, lastName, id, role }: CellProps) => {
+const Cell = (cellData: CellProps) => {
   return (
     <>
-      <tr>
-        <td className="border px-4 py-2">{id}</td>
-        <td className="border px-4 py-2">{firstName}</td>
-        <td className="border px-4 py-2">{lastName}</td>
-        <td className="border px-4 py-2">{email}</td>
-        <td className="border px-4 py-2">{role}</td>
-      </tr>
+      <td className="py-3 px-4">{cellData.id}</td>
+      <td className="py-3 px-4">{cellData.firstName}</td>
+      <td className="py-3 px-4">{cellData.lastName}</td>
+      <td className="py-3 px-4">{cellData.email}</td>
+      <td className="py-3 px-4">{cellData.role}</td>
     </>
   );
 };
-
 export default Cell;

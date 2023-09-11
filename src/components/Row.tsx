@@ -1,36 +1,14 @@
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import Loading from "../Pages/Loading";
-import {
-  selectUsers,
-  fetchUsers,
-  selectUsersLoading,
-  selectUsersError,
-} from "../redux/users/userSlice";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Cell from "./Cell";
 
-const Row = () => {
-  const users = useAppSelector(selectUsers);
-  const dispatch = useAppDispatch();
-  const loading = useAppSelector(selectUsersLoading);
-  const error = useAppSelector(selectUsersError);
-
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
-
-  if (loading) {
-    return <Loading />;
-  }
-  if (error) {
-    return <div>{"error: Reload the page please"}</div>;
-  }
+const Row = ({ users }: any) => { 
+  let count = 0;
   return (
     <>
-      {users.map((user) => (
-        <tr key={user.id}>
+      {users.map((user: any) => (
+        <tr key={user.id} className="border-b border-gray-300 hover:bg-gray-100">
           <Cell
-            id={user.id}
+            id={++count}
             firstName={user.firstName}
             lastName={user.lastName}
             email={user.email}
@@ -40,6 +18,6 @@ const Row = () => {
       ))}
     </>
   );
-};
+}
 
 export default Row;
